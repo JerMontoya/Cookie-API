@@ -86,12 +86,10 @@ const recipes = [
 ];
 
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the Cookie API! Try /recipes to see all recipes.');
-});
+
 
 // Get all recipes
-app.get("/recipes", (req, res) => {
+app.get("/", (req, res) => {
   res.json(recipes);
 });
 
