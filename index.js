@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 // Sample data
 const recipes = [
   {
@@ -89,7 +94,7 @@ const recipes = [
 
 
 // Get all recipes
-app.get("/", (req, res) => {
+app.get("/recipes", (req, res) => {
   res.json(recipes);
 });
 
@@ -109,7 +114,4 @@ app.listen(PORT, () => {
   console.log(`API is running at https://cookie-api-cljq.onrender.com`);
 });
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+
