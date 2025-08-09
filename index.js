@@ -108,3 +108,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`API is running at https://cookie-api-cljq.onrender.com`);
 });
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
